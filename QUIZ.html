@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start</title>
+    <link rel="stylesheet" href="s1.css">
+</head>
+
+<body>
+    
+
+    <div class="qa_box">
+        <div class="qa_header">
+            <span >Score: <span id="score" >0</span></span>
+            <!-- <span id="countdown">0</span> -->
+        </div>
+        <div class="qa_body">
+            <div class="qa_set active" id="1ques">
+                <h4>Que1: What is html stands for ?</h4>
+
+                <div class="qa_ans_row" onclick="changequestion(false)">
+                    <input type="radio" name="a1">
+                    <span>hypertool markup language</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="changequestion(true)">
+                    <input type="radio" name="a1" valid="valid">
+                    <span>hypertext markup language</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="changequestion(false)">
+                    <input type="radio" name="a1">
+                    <span>home text markup language</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="changequestion(false)">
+                    <input type="radio" name="a1">
+                    <span>cascading style sheet</span>
+                </div>
+
+            </div>
+
+            <div class="qa_set active2" id="2ques">
+                <h4>Ques2: What is www ?</h4>
+
+                <div class="qa_ans_row" onclick="finalres(false)">
+                    <input type="radio" name="a1">
+                    <span>world wind web</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="finalres(true)">
+                    <input type="radio" name="a1" valid="valid">
+                    <span>world wide web</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="finalres(false)">
+                    <input type="radio" name="a1">
+                    <span>world w web</span>
+                </div>
+
+                <div class="qa_ans_row" onclick="finalres(false)">
+                    <input type="radio" name="a1">
+                    <span>cascading style sheet</span>
+                </div>
+
+            </div>
+
+            <div class="qa_set active1" id="finalscore">
+                <h4 >Your Total Score<span id="totalScore"> 0</span> out of 100</h4>
+            </div>
+
+
+        </div>
+        <div class="qa_footer" style="text-align: center;">
+            <a href="s.html" class="btn1">Start</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function changequestion(val){
+
+        setTimeout( function(val){
+          var curr_ques=document.getElementById("1ques")
+          var next_ques=document.getElementById("2ques")
+
+          curr_ques.style.display="none"
+          next_ques.style.display="block"
+         
+        
+        },1000);
+        var score=document.getElementById("score")
+          console.log(val)
+          if(val){
+           score.innerHTML="50"
+          }
+    }
+
+    const finalres=(val)=>{
+        setTimeout(
+            function(){
+                var curr_ques=document.getElementById("2ques")
+                var final=document.getElementById("finalscore")
+                curr_ques.style.display="none"
+                final.style.display="block"
+            }
+        ,1000)
+        var score=document.getElementById("score")
+          console.log(val)
+          if(val){
+            var final=document.getElementById("finalscore")
+            var curr=score.innerHTML
+            if(curr==="0")
+           score.innerHTML="50"
+        else score.innerHTML="100"
+        var finalsc=score.innerHTML
+        final.innerHTML=`YourTotalScore ${finalsc} outof100` 
+        }
+        else {
+            var curr=score.innerHTML
+            var final=document.getElementById("finalscore")
+           final.innerHTML=`Your Total Score ${curr} out of100`
+        }
+
+    }
+    </script>
+</body>
+
+</html>
